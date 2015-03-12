@@ -1,0 +1,20 @@
+<div class="error-page" style="z-index: 700;">
+    <div class="button-box" style="z-index: 460; text-align: center; ">
+            <p>
+  	<button ng-repeat-start="item in form.items"
+         type="button"
+         class="btn btn-default cursor"
+          ng-if="item.type !== 'submit'"
+          ng-click="buttonClick($event,item)">{{item.title}}</button>
+
+  	<input ng-repeat-end 
+  		type="submit"
+         class="btn btn-primary st-button"
+         value="{{item.title}}"
+         ng-if="item.type === 'submit'" ng-hide="readOnlyMode">
+          
+	</p>
+    </div>      
+</div>      
+<div class="clear"></div><div class="clear"></div>
+

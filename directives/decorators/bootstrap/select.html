@@ -1,0 +1,25 @@
+<div class="st-form-line form-group" ng-class="{'has-error': hasError()}">
+  <span class="{{form.schema.stlabelCls}}" ng-show="showTitle()"><strong>{{form.title}}</strong></span>  
+    <p class="st-displaytext " ng-if="form.schema.readOnlyMode" >
+      {{$$value$$}}      
+    </p>
+    
+  <select 
+      ng-model="$$value$$"   
+      style="{{form.schema.style}}" 
+      ng-hide="{{form.schema.readOnlyMode}}" 
+      title="{{item.title}}" 
+      name="{{form.schema.key}}" id="{{form.schema.key}}"
+      class="form-control" 
+      ng-required="form.required"
+      >
+        <option value=''>Select</option>
+        <option 
+          ng-selected="{{obj.id == $$value$$}}"
+          ng-repeat="obj in form.titleMap.items track by obj.id" value="{{obj.id}}">{{obj.value}}
+        </option> 
+            
+  </select>
+  <span class="help-block">{{ (hasError() && errorMessage(schemaError())) || form.description}} </span>
+  <div class="clear"></div>
+</div>

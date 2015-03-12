@@ -1,0 +1,22 @@
+<div class="st-form-line form-group" ng-class="{'has-error': hasError()}">
+  <span class="{{form.schema.stlabelCls}}" ng-show="showTitle()"><strong>{{form.title}}</strong></span>  
+    <p class="st-displaytext " ng-if="form.schema.readOnlyMode" >
+      {{$$value$$}}      
+    </p>
+  ASd
+  
+  <input style="width:250px" type="text" ng-model="$$value$$"  
+  ngchange="changeEmployee(this)" typeahead="(items.lastname + ', ' + items.firstname) for items in liveSearchEmployee($$value$$) "
+  typeahead-on-select="selectedPatientConsult($item)" 
+  typeahead-min-length="3"
+
+  ng-hide="{{form.schema.readOnlyMode}}" 
+  name="{{form.key}}" id="{{form.key}}" title="{{form.title}}"
+  ng-required="form.required" /> 
+  
+ 
+            
+  </select>
+  <span class="help-block">{{ (hasError() && errorMessage(schemaError())) || form.description}} </span>
+  <div class="clear"></div>
+</div>

@@ -1,0 +1,30 @@
+<div class="st-form-line form-group" ng-class="{'has-error': hasError()}">
+  <span class="{{form.schema.stlabelCls}}" ng-show="showTitle()"><strong>{{form.title}}</strong></span> 
+    <p class="st-displaytext " ng-if="form.schema.readOnlyMode" >
+      {{$$value$$}}      
+    </p>
+    
+    <datetimepicker ng-show="form.key"
+         type="{{form.type}}"
+         placeholder="{{form.placeholder}}"
+         class=""
+         ng-required="form.required"
+         ng-model="$$value$$"
+         schema-validate="form.schema"
+         style="{{form.schema.style}}"
+         ng-hide="{{form.schema.readOnlyMode}}"
+         title="{{item.title}}"
+         name="{{form.schema.key}}" id="{{form.schema.key}}"
+
+         show-meridian="false" 
+
+         datepicker-popup="{{form.format}}" 
+         is-open="opened_datetimer_{{form.key}}"  
+         show-weeks=false
+         datepicker-options="dateOptions"  
+         close-text="X">
+         </datetimepicker> 
+  
+  <span class="help-block">{{ (hasError() && errorMessage(schemaError())) || form.description}}</span>
+  <div class="clear" style="clear: both; "></div> 
+</div>

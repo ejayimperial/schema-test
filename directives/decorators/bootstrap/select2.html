@@ -1,0 +1,17 @@
+<div class="st-form-line form-group" ng-class="{'has-error': hasError()}">
+  <span class="{{form.schema.stlabelCls}}" ng-show="showTitle()"><strong>{{form.title}}</strong></span>  
+    <p class="st-displaytext " ng-if="form.schema.readOnlyMode" >
+      {{$$value$$}}      
+    </p>
+  
+  <input ui-select2="form.schema.objectControl"  type="hidden" 
+    ng-model="$$value$$"   
+    ng-required="form.required" 
+    name="{{form.key}}" id="{{form.key}}" title="{{form.title}}" 
+          style="width: 261px; float: left; margin-top: 2px; " ng-hide="{{form.schema.readOnlyMode}}"   />
+ 
+            
+  </select>
+  <span class="help-block">{{ (hasError() && errorMessage(schemaError())) || form.description}} </span>
+  <div class="clear"></div>
+</div>

@@ -1,0 +1,24 @@
+<div class="st-form-line form-group" ng-class="{'has-error': hasError()}">
+  <span class="{{form.schema.stlabelCls}}" ng-show="showTitle()"><strong>{{form.title}}</strong></span> 
+  <p class="st-displaytext " ng-if="form.schema.readOnlyMode" >
+      {{$$value$$}}      
+    </p>
+    
+
+  <div class="radio" ng-repeat="  List in form.titleMap.items"  > 
+    <label style="margin-right: 5px; " class="checkbox-group-set">
+      <input type="radio"
+             style="{{form.schema.style}}"
+             ng-hide="{{form.schema.readOnlyMode}}"
+             title="{{item.title}}"
+             name="{{form.schema.key}}" id="{{form.schema.key}}"
+
+             ng-model="$$value$$"
+             ng-value="List.id"
+             >
+      {{List.value}}
+    </label>
+  </div>
+  <span class="help-block" ng-show="form.description">{{form.description}}</span>
+  <div class="clear"></div>
+</div>

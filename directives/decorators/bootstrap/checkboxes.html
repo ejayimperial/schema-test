@@ -1,0 +1,21 @@
+<div class="st-form-line form-group" ng-class="{'has-error': hasError()}" ng-init="checkboxValues = {}">
+	<span class="{{form.schema.stlabelCls}}" ng-show="showTitle()"><strong>{{form.title}}</strong></span> 
+	<p class="st-displaytext " ng-if="form.schema.readOnlyMode" >
+      {{$$value$$}}      
+    </p>
+    
+  	<div class="checkbox-group-set" ng-repeat="(value,name) in form.titleMap" >
+	    <label style="margin-right: 5px; ">
+	      <input 
+	      style="{{form.schema.style}}"
+          ng-hide="{{form.schema.readOnlyMode}}"
+          title="{{item.title}}"
+          name="{{form.schema.key}}" id="{{form.schema.key}}"
+
+	      type="checkbox" ng-model="checkboxValues[value]" ng-change="$$value$$ = checkboxValuesToList(checkboxValues)" >
+	      {{name}}
+	    </label>
+  	</div>
+  <span class="help-block" ng-show="form.description">{{form.description}}</span>
+  <div class="clear"></div>
+</div>

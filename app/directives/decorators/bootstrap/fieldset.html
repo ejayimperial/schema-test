@@ -1,0 +1,6 @@
+<fieldset ng-disabled="form.readonly">
+  <div class="st-tinytitle" style="z-index: 550;" ng-show="form.title"><h3>{{ form.title }}</h3>
+    	<p>{{form.description}}</p>
+  </div>
+  <sf-decorator ng-repeat="item in form.items" form="item"></sf-decorator>
+</fieldset>
